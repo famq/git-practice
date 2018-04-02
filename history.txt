@@ -1,0 +1,382 @@
+
+09006801@FR14010927JP MINGW32 ~/Documents/GitHub
+$ git clone git@github.com:opst-kubo/git-practice.git
+Cloning into 'git-practice'...
+remote: Counting objects: 3, done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (3/3), done.
+
+09006801@FR14010927JP MINGW32 ~/Documents/GitHub
+$ cd git-practice/
+
+09006801@FR14010927JP MINGW32 ~/Documents/GitHub/git-practice (master)
+$ ls
+README.md
+
+09006801@FR14010927JP MINGW32 ~/Documents/GitHub/git-practice (master)
+$ git help
+usage: git [--version] [--help] [-C <path>] [-c name=value]
+           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+           [-p | --paginate | --no-pager] [--no-replace-objects] [--bare]
+           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
+           <command> [<args>]
+
+These are common Git commands used in various situations:
+
+start a working area (see also: git help tutorial)
+   clone      Clone a repository into a new directory
+   init       Create an empty Git repository or reinitialize an existing one
+
+work on the current change (see also: git help everyday)
+   add        Add file contents to the index
+   mv         Move or rename a file, a directory, or a symlink
+   reset      Reset current HEAD to the specified state
+   rm         Remove files from the working tree and from the index
+
+examine the history and state (see also: git help revisions)
+   bisect     Use binary search to find the commit that introduced a bug
+   grep       Print lines matching a pattern
+   log        Show commit logs
+   show       Show various types of objects
+   status     Show the working tree status
+
+grow, mark and tweak your common history
+   branch     List, create, or delete branches
+   checkout   Switch branches or restore working tree files
+   commit     Record changes to the repository
+   diff       Show changes between commits, commit and working tree, etc
+   merge      Join two or more development histories together
+   rebase     Reapply commits on top of another base tip
+   tag        Create, list, delete or verify a tag object signed with GPG
+
+collaborate (see also: git help workflows)
+   fetch      Download objects and refs from another repository
+   pull       Fetch from and integrate with another repository or a local branch
+   push       Update remote refs along with associated objects
+
+'git help -a' and 'git help -g' list available subcommands and some
+concept guides. See 'git help <command>' or 'git help <concept>'
+to read about a specific subcommand or concept.
+
+09006801@FR14010927JP MINGW32 ~/Documents/GitHub/git-practice (master)
+$ touch test.py
+
+09006801@FR14010927JP MINGW32 ~/Documents/GitHub/git-practice (master)
+$ vi test.py
+
+09006801@FR14010927JP MINGW32 ~/Documents/GitHub/git-practice (master)
+$ python test.py
+
+09006801@FR14010927JP MINGW32 ~/Documents/GitHub/git-practice (master)
+$ vi test.py
+
+09006801@FR14010927JP MINGW32 ~/Documents/GitHub/git-practice (master)
+$ python test.py
+C:\Program Files\Python36-32\python.exe
+
+09006801@FR14010927JP MINGW32 ~/Documents/GitHub/git-practice (master)
+$ git add test.py
+
+09006801@FR14010927JP MINGW32 ~/Documents/GitHub/git-practice (master)
+$ git commit
+[master b49d6aa] add sample source
+ 1 file changed, 3 insertions(+)
+ create mode 100644 test.py
+
+09006801@FR14010927JP MINGW32 ~/Documents/GitHub/git-practice (master)
+$ git log
+commit b49d6aa8a2a6d721fbba3b5e17bec257609f6f7e (HEAD -> master)
+Author: Hidehiro.KUBO <hidehiro.kubo@wearex.com>
+Date:   Mon Apr 2 14:58:11 2018 +0900
+
+    add sample source
+
+commit 7b837e14c9674071fd59f058e8f4e6ad75ea4681 (origin/master, origin/HEAD)
+Author: Hidehiro.KUBO <hidehiro.kubo@wearex.com>
+Date:   Mon Apr 2 14:52:59 2018 +0900
+
+    Initial commit
+
+09006801@FR14010927JP MINGW32 ~/Documents/GitHub/git-practice (master)
+$ git log --graph
+* commit b49d6aa8a2a6d721fbba3b5e17bec257609f6f7e (HEAD -> master)
+| Author: Hidehiro.KUBO <hidehiro.kubo@wearex.com>
+| Date:   Mon Apr 2 14:58:11 2018 +0900
+|
+|     add sample source
+|
+* commit 7b837e14c9674071fd59f058e8f4e6ad75ea4681 (origin/master, origin/HEAD)
+  Author: Hidehiro.KUBO <hidehiro.kubo@wearex.com>
+  Date:   Mon Apr 2 14:52:59 2018 +0900
+
+      Initial commit
+
+09006801@FR14010927JP MINGW32 ~/Documents/GitHub/git-practice (master)
+$ git push origin HEAD
+Counting objects: 3, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 320 bytes | 0 bytes/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To github.com:opst-kubo/git-practice.git
+   7b837e1..b49d6aa  HEAD -> master
+
+09006801@FR14010927JP MINGW32 ~/Documents/GitHub/git-practice (master)
+$ git branch test
+
+09006801@FR14010927JP MINGW32 ~/Documents/GitHub/git-practice (master)
+$ git branch
+* master
+  test
+
+09006801@FR14010927JP MINGW32 ~/Documents/GitHub/git-practice (master)
+$ git checkout test
+Switched to branch 'test'
+
+09006801@FR14010927JP MINGW32 ~/Documents/GitHub/git-practice (test)
+$ vi README.md
+
+09006801@FR14010927JP MINGW32 ~/Documents/GitHub/git-practice (test)
+$ git add README.md
+
+09006801@FR14010927JP MINGW32 ~/Documents/GitHub/git-practice (test)
+$ git commit
+[test cef3676] update README
+ 1 file changed, 7 insertions(+), 1 deletion(-)
+
+09006801@FR14010927JP MINGW32 ~/Documents/GitHub/git-practice (test)
+$ git log
+commit cef3676ada8f2f60726eb84b95636483954dcb68 (HEAD -> test)
+Author: Hidehiro.KUBO <hidehiro.kubo@wearex.com>
+Date:   Mon Apr 2 15:03:34 2018 +0900
+
+    update README
+
+commit b49d6aa8a2a6d721fbba3b5e17bec257609f6f7e (origin/master, origin/HEAD, master)
+Author: Hidehiro.KUBO <hidehiro.kubo@wearex.com>
+Date:   Mon Apr 2 14:58:11 2018 +0900
+
+    add sample source
+
+commit 7b837e14c9674071fd59f058e8f4e6ad75ea4681
+Author: Hidehiro.KUBO <hidehiro.kubo@wearex.com>
+Date:   Mon Apr 2 14:52:59 2018 +0900
+
+    Initial commit
+
+09006801@FR14010927JP MINGW32 ~/Documents/GitHub/git-practice (test)
+$ git checkout master
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+
+09006801@FR14010927JP MINGW32 ~/Documents/GitHub/git-practice (master)
+$ vi README.md
+
+09006801@FR14010927JP MINGW32 ~/Documents/GitHub/git-practice (master)
+$ git add test.py
+g
+09006801@FR14010927JP MINGW32 ~/Documents/GitHub/git-practice (master)
+$ git commit
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes not staged for commit:
+        modified:   README.md
+
+no changes added to commit
+
+09006801@FR14010927JP MINGW32 ~/Documents/GitHub/git-practice (master)
+$ git add README.md
+
+09006801@FR14010927JP MINGW32 ~/Documents/GitHub/git-practice (master)
+$ git commit
+[master b39094c] update from master
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+
+09006801@FR14010927JP MINGW32 ~/Documents/GitHub/git-practice (master)
+$ git log
+commit b39094c1b5471da0f8b0073c3479826c0166df1b (HEAD -> master)
+Author: Hidehiro.KUBO <hidehiro.kubo@wearex.com>
+Date:   Mon Apr 2 15:05:07 2018 +0900
+
+    update from master
+
+commit b49d6aa8a2a6d721fbba3b5e17bec257609f6f7e (origin/master, origin/HEAD)
+Author: Hidehiro.KUBO <hidehiro.kubo@wearex.com>
+Date:   Mon Apr 2 14:58:11 2018 +0900
+
+    add sample source
+
+commit 7b837e14c9674071fd59f058e8f4e6ad75ea4681
+Author: Hidehiro.KUBO <hidehiro.kubo@wearex.com>
+Date:   Mon Apr 2 14:52:59 2018 +0900
+
+    Initial commit
+
+09006801@FR14010927JP MINGW32 ~/Documents/GitHub/git-practice (master)
+$ git fetch --all
+Fetching origin
+
+09006801@FR14010927JP MINGW32 ~/Documents/GitHub/git-practice (master)
+$ git br
+* master
+  test
+
+09006801@FR14010927JP MINGW32 ~/Documents/GitHub/git-practice (master)
+$ git co test
+Switched to branch 'test'
+
+09006801@FR14010927JP MINGW32 ~/Documents/GitHub/git-practice (test)
+$ git log --oneline
+cef3676 (HEAD -> test) update README
+b49d6aa (origin/master, origin/HEAD) add sample source
+7b837e1 Initial commit
+
+09006801@FR14010927JP MINGW32 ~/Documents/GitHub/git-practice (test)
+$ git remote -v
+origin  git@github.com:opst-kubo/git-practice.git (fetch)
+origin  git@github.com:opst-kubo/git-practice.git (push)
+
+09006801@FR14010927JP MINGW32 ~/Documents/GitHub/git-practice (test)
+$ git push origin test
+Counting objects: 3, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 331 bytes | 0 bytes/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To github.com:opst-kubo/git-practice.git
+ * [new branch]      test -> test
+
+09006801@FR14010927JP MINGW32 ~/Documents/GitHub/git-practice (test)
+$ git co master
+Switched to branch 'master'
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+09006801@FR14010927JP MINGW32 ~/Documents/GitHub/git-practice (master)
+$ git log
+commit b39094c1b5471da0f8b0073c3479826c0166df1b (HEAD -> master)
+Author: Hidehiro.KUBO <hidehiro.kubo@wearex.com>
+Date:   Mon Apr 2 15:05:07 2018 +0900
+
+    update from master
+
+commit b49d6aa8a2a6d721fbba3b5e17bec257609f6f7e (origin/master, origin/HEAD)
+Author: Hidehiro.KUBO <hidehiro.kubo@wearex.com>
+Date:   Mon Apr 2 14:58:11 2018 +0900
+
+    add sample source
+
+commit 7b837e14c9674071fd59f058e8f4e6ad75ea4681
+Author: Hidehiro.KUBO <hidehiro.kubo@wearex.com>
+Date:   Mon Apr 2 14:52:59 2018 +0900
+
+    Initial commit
+
+09006801@FR14010927JP MINGW32 ~/Documents/GitHub/git-practice (master)
+$ git push origin master
+Counting objects: 3, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 334 bytes | 0 bytes/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To github.com:opst-kubo/git-practice.git
+   b49d6aa..b39094c  master -> master
+
+09006801@FR14010927JP MINGW32 ~/Documents/GitHub/git-practice (master)
+$ git checkout test
+Switched to branch 'test'
+
+09006801@FR14010927JP MINGW32 ~/Documents/GitHub/git-practice (test)
+$ git fetch --all
+Fetching origin
+
+09006801@FR14010927JP MINGW32 ~/Documents/GitHub/git-practice (test)
+$ git merge master
+Auto-merging README.md
+CONFLICT (content): Merge conflict in README.md
+Automatic merge failed; fix conflicts and then commit the result.
+
+09006801@FR14010927JP MINGW32 ~/Documents/GitHub/git-practice (test|MERGING)
+$ git merge help
+error: Merging is not possible because you have unmerged files.
+hint: Fix them up in the work tree, and then use 'git add/rm <file>'
+hint: as appropriate to mark resolution and make a commit.
+fatal: Exiting because of an unresolved conflict.
+
+09006801@FR14010927JP MINGW32 ~/Documents/GitHub/git-practice (test|MERGING)
+$ git add README.md
+
+09006801@FR14010927JP MINGW32 ~/Documents/GitHub/git-practice (test|MERGING)
+$ git winmerge
+No files need merging
+
+09006801@FR14010927JP MINGW32 ~/Documents/GitHub/git-practice (test|MERGING)
+$ git merge --continue
+[test b199525] Merge branch 'master' into test
+
+09006801@FR14010927JP MINGW32 ~/Documents/GitHub/git-practice (test)
+$ git log --oneline
+b199525 (HEAD -> test) Merge branch 'master' into test
+b39094c (origin/master, origin/HEAD, master) update from master
+cef3676 (origin/test) update README
+b49d6aa add sample source
+7b837e1 Initial commit
+
+09006801@FR14010927JP MINGW32 ~/Documents/GitHub/git-practice (test)
+$ git push orign test
+fatal: 'orign' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+09006801@FR14010927JP MINGW32 ~/Documents/GitHub/git-practice (test)
+$ git push origin test
+Counting objects: 3, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 387 bytes | 0 bytes/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To github.com:opst-kubo/git-practice.git
+   cef3676..b199525  test -> test
+
+09006801@FR14010927JP MINGW32 ~/Documents/GitHub/git-practice (test)
+$ git co master
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+
+09006801@FR14010927JP MINGW32 ~/Documents/GitHub/git-practice (master)
+$ git fetch --all
+Fetching origin
+remote: Counting objects: 1, done.
+remote: Total 1 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (1/1), done.
+From github.com:opst-kubo/git-practice
+   b39094c..8a46f52  master     -> origin/master
+
+09006801@FR14010927JP MINGW32 ~/Documents/GitHub/git-practice (master)
+$ git merge origin/master
+Updating b39094c..8a46f52
+Fast-forward
+ README.md | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+09006801@FR14010927JP MINGW32 ~/Documents/GitHub/git-practice (master)
+$ git branch -d test
+Deleted branch test (was b199525).
+
+09006801@FR14010927JP MINGW32 ~/Documents/GitHub/git-practice (master)
+$ git branch
+* master
+
+09006801@FR14010927JP MINGW32 ~/Documents/GitHub/git-practice (master)
+$ ll
+total 8
+-rw-r--r-- 1 09006801 1049089 82 4月   2 15:21 README.md
+-rw-r--r-- 1 09006801 1049089 35 4月   2 14:56 test.py
+
+09006801@FR14010927JP MINGW32 ~/Documents/GitHub/git-practice (master)
+$ history > history.txt
+
+09006801@FR14010927JP MINGW32 ~/Documents/GitHub/git-practice (master)
+$
